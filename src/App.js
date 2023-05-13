@@ -1,19 +1,26 @@
-import './App.css'
-import ChatWindow from './components/ChatWindow'
+import './styles/App.css'
+import ChatWindow from './components/Chat/ChatWindow'
 import Header from './components/Header'
-import UsersList from './components/UsersList'
+import UsersList from './components/UsersList/UsersList'
+import { useState } from 'react'
 
 const App = () => {
+    const [selectedUser, setSelectedUser] = useState(null)
+
+    const onUserSelect = (user) => {
+        setSelectedUser(user)
+    }
+
     return (
-        <>
-            <div className='app-header'>
-                <Header />
+        <div className='app-container'>
+            <Header />
+            <div className='app-content'>
+                <div className='app-chat'>
+                    <UsersList onUserSelect={onUserSelect}/>
+                    <ChatWindow selectedUser={selectedUser}/>
+                </div>
             </div>
-            <div className='app-container'>
-                <UsersList />
-                <ChatWindow />
-            </div>
-        </>
+        </div>
     )
 }
 
