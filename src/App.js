@@ -1,6 +1,6 @@
 import './styles/App.css'
 import ChatWindow from './components/Chat/ChatWindow'
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import UsersList from './components/UsersList/UsersList'
 import { useState } from 'react'
 import AppStateProvider from './providers/AppStateProvider'
@@ -15,21 +15,21 @@ const App = () => {
     }
 
     return (
-        <AppStateProvider>
-            <AuthDataProvider>
-                <div className='app-container'>
-                    <Header />
-                    <div className='app-content'>
-                        <AuthCheck>
+        <AuthDataProvider>
+            <div className='app-container'>
+                <Header />
+                <div className='app-content'>
+                    <AuthCheck>
+                        <AppStateProvider>
                             <div className='app-chat'>
                                 <UsersList onUserSelect={onUserSelect} />
                                 <ChatWindow selectedUser={selectedUser} />
                             </div>
-                        </AuthCheck>
-                    </div>
+                        </AppStateProvider>
+                    </AuthCheck>
                 </div>
-            </AuthDataProvider>
-        </AppStateProvider>
+            </div>
+        </AuthDataProvider>
     )
 }
 

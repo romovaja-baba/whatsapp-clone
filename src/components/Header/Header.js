@@ -1,5 +1,5 @@
-import logo from '../images/whatsapp-logo.svg'
-import '../styles/Header.css'
+import logo from '../../images/whatsapp-logo.svg'
+import '../../styles/Header.css'
 
 const Header = () => {
     return (

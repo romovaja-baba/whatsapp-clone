@@ -6,11 +6,13 @@ const UsersInput = ({ onPhoneSubmit }) => {
         handleSubmit,
         formState: { errors },
         clearErrors,
+        reset,
     } = useForm()
 
     const onSubmit = (data) => {
-        console.log(data)
+        onPhoneSubmit(data.userPhoneNumber)
         clearErrors('userPhoneNumber')
+        reset()
     }
 
     return (
@@ -19,7 +21,7 @@ const UsersInput = ({ onPhoneSubmit }) => {
                 <input
                     {...register('userPhoneNumber', {
                         required: true,
-                        pattern: /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/,
+                        pattern: /^7\d{10}$/,
                     })}
                     placeholder='Введите номер в формате 7XXXXXXXX'
                 />
