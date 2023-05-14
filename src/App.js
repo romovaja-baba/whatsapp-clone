@@ -16,8 +16,8 @@ const App = () => {
             <Header />
             <div className='app-content'>
                 <div className='app-chat'>
-                    <UsersList onUserSelect={onUserSelect}/>
-                    <ChatWindow selectedUser={selectedUser}/>
+                    <UsersList onUserSelect={onUserSelect} />
+                    <ChatWindow selectedUser={selectedUser} />
                 </div>
             </div>
         </div>

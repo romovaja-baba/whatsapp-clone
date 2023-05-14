@@ -15,11 +15,7 @@ const UsersList = ({ onUserSelect }) => {
             <UsersInput onPhoneSubmit={onPhoneSubmit} />
             <div className='users-container'>
                 {users.map((user, index) => (
-                    <User
-                        user={user}
-                        key={index}
-                        onUserSelect={onUserSelect}
-                    />
+                    <User user={user} key={index} onUserSelect={onUserSelect} />
                 ))}
             </div>
         </div>

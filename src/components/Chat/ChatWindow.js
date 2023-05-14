@@ -18,8 +18,9 @@ const ChatWindow = ({ selectedUser }) => {
                         <ChatMessage id={m.id} key={m.id} text={m.text} isMe={!!m.isMe} />
                     ))}
                 </div>
-                <div className='chat-messages-input'>
+                <div className='chat-messages-input text-input'>
                     <input placeholder='Введите сообщение...' />
+                    <button>Отправить</button>
                 </div>
             </div>
         </div>
