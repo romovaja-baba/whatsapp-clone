@@ -1,0 +1,36 @@
+.login-container {
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 50px 0;
+}
+
+.login-form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.login-form-elem {
+    width: 20vw;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #ece5dd;
+}
+
+.login-form-elem:focus {
+    border: 2px solid #fff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(33, 33, 33, 0.2);
+}
+
+.login-form-button {
+    background-color: #ece5dd;
+    box-shadow: 0 0 5px rgba(33, 33, 33, 0.2);
+    cursor: pointer;
+}

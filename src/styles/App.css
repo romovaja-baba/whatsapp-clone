@@ -87,3 +87,14 @@ body {
     cursor: pointer;
     border-radius: 0 8px 8px 0;
 }
+
+.input-error {
+    font-size: 14px;
+    color: rgb(205, 75, 75);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

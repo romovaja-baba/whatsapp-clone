@@ -1,6 +1,7 @@
 import ChatMessage from './ChatMessage'
 import '../../styles/ChatWindow.css'
 import { useState } from 'react'
+import ChatInput from './ChatInput'
 
 const ChatWindow = ({ selectedUser }) => {
     const [messages, setMessages] = useState([])
@@ -18,10 +19,7 @@ const ChatWindow = ({ selectedUser }) => {
                         <ChatMessage id={m.id} key={m.id} text={m.text} isMe={!!m.isMe} />
                     ))}
                 </div>
-                <div className='chat-messages-input text-input'>
-                    <input placeholder='Введите сообщение...' />
-                    <button>Отправить</button>
-                </div>
+                <ChatInput />
             </div>
         </div>
     )
