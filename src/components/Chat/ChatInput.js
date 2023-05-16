@@ -1,16 +1,22 @@
 import { useForm } from 'react-hook-form'
+import { sendMessageLogic } from '../../tools/sendMessageLogic'
+import { useContext } from 'react'
+import { AuthDataContext } from '../../providers/AuthDataProvider'
 
-const ChatInput = () => {
+const ChatInput = ({ chatId, onMessageSend }) => {
+    const authData = useContext(AuthDataContext).authData
     const {
         register,
         handleSubmit,
         formState: { errors },
         clearErrors,
+        reset,
     } = useForm()
 
     const onSubmit = (data) => {
-        console.log(data)
+        sendMessageLogic(chatId, onMessageSend, data.message, authData)
         clearErrors('message')
+        reset()
     }
 
     return (

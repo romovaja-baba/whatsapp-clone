@@ -12,10 +12,11 @@ const AuthCheck = ({ children }) => {
 const Login = () => {
     const authData = useContext(AuthDataContext)
     const { register, handleSubmit } = useForm()
+
     const onSubmit = (data) => {
         authData.setAuthData(data)
-        console.log(authData)
     }
+
     return (
         <div className='login-container'>
             <h2>Введите данные</h2>

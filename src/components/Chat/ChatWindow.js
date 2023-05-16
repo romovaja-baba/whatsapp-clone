@@ -1,10 +1,18 @@
+import { useContext } from 'react'
+import { AppStateContext } from '../../providers/AppStateProvider'
 import ChatMessage from './ChatMessage'
-import '../../styles/ChatWindow.css'
-import { useState } from 'react'
 import ChatInput from './ChatInput'
+import '../../styles/ChatWindow.css'
 
 const ChatWindow = ({ selectedUser }) => {
-    const [messages, setMessages] = useState([])
+    const { getChat, setMessage } = useContext(AppStateContext)
+    const selectedUserChat = getChat(selectedUser)
+    const messages = selectedUserChat?.messages
+    const chatId = selectedUserChat?.chatId
+
+    const onMessageSend = (messageId, messageText) => {
+        setMessage(selectedUser, messageId, messageText, true)
+    }
 
     if (!selectedUser) {
         return null
@@ -15,11 +23,11 @@ const ChatWindow = ({ selectedUser }) => {
             <div className='chat-userId'>Чат с пользователем {selectedUser.phoneNumber}</div>
             <div className='chat-window-container'>
                 <div className='chat-messages-list'>
-                    {messages.map((m) => (
-                        <ChatMessage id={m.id} key={m.id} text={m.text} isMe={!!m.isMe} />
+                    {messages.map((message) => (
+                        <ChatMessage key={message.id} message={message} />
                     ))}
                 </div>
-                <ChatInput />
+                <ChatInput chatId={chatId} onMessageSend={onMessageSend} />
             </div>
         </div>
     )

@@ -1,13 +1,15 @@
+import { useContext } from 'react'
+import { AppStateContext } from '../../providers/AppStateProvider'
 import User from './User'
-import '../../styles/Users.css'
 import UsersInput from './UsersInput'
-import { useState } from 'react'
+import '../../styles/Users.css'
 
 const UsersList = ({ onUserSelect }) => {
-    const [users, setUsers] = useState([])
+    const users = useContext(AppStateContext).getAllChats()
+    const setChat = useContext(AppStateContext).setChat
 
     const onPhoneSubmit = (phoneNumber) => {
-        setUsers([...users, { phoneNumber: phoneNumber }])
+        setChat({ phoneNumber: phoneNumber })
     }
 
     return (
