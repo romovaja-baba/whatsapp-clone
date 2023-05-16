@@ -33,6 +33,7 @@ const AppStateProvider = ({ children }) => {
                     setMessage({ chatId: chatId }, messageId, messageText, false)
                 } else {
                     await chatApi.deleteNotification(receiptId, authData)
+                    receiveMessagesLogic()
                 }
             } catch (error) {
                 alert('Неправильные данные входа')
