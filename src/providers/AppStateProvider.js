@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect, useContext } from 'react'
-import { receiveMessagesLogic } from '../tools/receiveMessagesLogic'
 import { AuthDataContext } from './AuthDataProvider'
 import { chatApi } from '../api/api'
 
@@ -45,7 +44,7 @@ const AppStateProvider = ({ children }) => {
         return () => {
             ignore = true
         }
-    }, [state])
+    }, [state, authData])
 
     const getChat = (user) => {
         return state.chats.find((chat) => chat.chatId === numberToId(user?.phoneNumber))
