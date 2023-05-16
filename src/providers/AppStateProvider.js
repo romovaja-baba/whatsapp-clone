@@ -44,7 +44,7 @@ const AppStateProvider = ({ children }) => {
         return () => {
             ignore = true
         }
-    }, [state, authData, setMessage])
+    }, [state, authData])
 
     const getChat = (user) => {
         return state.chats.find((chat) => chat.chatId === numberToId(user?.phoneNumber))
